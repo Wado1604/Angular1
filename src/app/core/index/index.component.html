@@ -1,58 +1,80 @@
-<div class="background vh-100">
-
-    <nav class="navbar navbar-expand-lg navbar-light ">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Navbar</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Dropdown
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled">Disabled</a>
-                    </li>
-                </ul>
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
-            </div>
-        </div>
-    </nav>
-
+<div class="h-100 background d-flex flex-column">
+  <app-navbar></app-navbar>
+  <div class="py-5 mt-auto mb-auto">
     <div class="container">
-        <div class="d-flex justify-content-between">
-            <div>
-                <h1>Descubre el potencial de tus redes sociales</h1>
-                <p>Agebte premier de META</p>
-                <button class="btn custom-button mt-5">Entrar aqui</button>
-            </div>
+      <div class="body"></div>
 
-            <div>
-                <img src="assets/Lobo3.png" style="height: 500px;">
-            </div>
-        </div>
+      <div class="imgWrapper3">
+
+        <button>
+          <div class="botonHombre">
+            <img class="botonHombre" id="buttonHombre" src="assets/hombre.jpeg" type="button"
+              style="width:400px;height:500px;">
+            <a class="botonHombre" href="http://localhost:4200/hombre"></a>
+            <button class="botonHombre" id="buttonHombre" type="button"><a class="botonHombre"
+                href="http://localhost:4200/hombre">Hombre</a></button>
+          </div>
+        </button>
+
+        <button>
+          <div class="botonTeen">
+            <img class="botonTeen" type="button" id="botonTeen" src="assets/teen.jpeg"
+              style="height: 500px; width: 385px;">
+            <button class="botonTeen" id="buttonTeen" type="button"><a class="botonTeen"
+                href="http://localhost:4200/teen">Teen</a></button>
+          </div>
+        </button>
+        <button>
+          <div class="botonMujeres">
+            <img src="assets/mujer.jpeg" class="botonMujeres" type="button" style="width:400px;height:500px;" />
+            <button class="botonMujeres" id="buttonMujer" type="button"><a class="botonMujeres"
+                href="http://localhost:4200/mujeres">Mujer</a></button>
+          </div>
+        </button>
+      </div>
+        <button>
+          <div class="botonNiños">
+            <img src="assets/niños.jpeg" class="botonNiños" type="button" style="width:1265px;height:500px;">
+            <button class="botonNiños" id="buttonNiños" type="button"><a class="botonNiños"
+                href="http://localhost:4200/page-4">Niños</a></button>
+          </div>
+        </button>
+      
+
+
+
+      <div class="mb-3">
+        <label for="name" class="form-label">Nombre usuario</label>
+        <input type="text" class="form-control" [(ngModel)]="name" id="name" aria-describedby="namehelp">
+        <div id="namehelp" class="form-text">Escribe tu id</div>
+      </div>
+
+      <div class="mb-3">
+        <label for="password" class="form-label">Contraseña</label>
+        <input type="text" class="form-control" [(ngModel)]="password" id="password" aria-describedby="passwordhelp">
+        <div id="passwordhelp" class="form-text">Escribe tu contraseña</div>
+      </div>
+
+      <button type="button" class="btn btn-call-action mt-5" (click)="createprenda()">
+        Registra aqui
+      </button>
+
     </div>
+    <div class="row mt-5">
+      <div class="col-12">
+        <h5>Nuestras clientes</h5>
+      </div>
+      <div class="col-lg-2 col-md-6 col-sm-12 py-2" *ngFor="let prenda of prendas">
+        <img [src]="prenda.avatar" alt="" />
+        <p class="mb-0">{{ prenda.createdAt | date }}</p>
+        <p class="mb-0">{{ prenda.name }}</p>
+        <p class="mb-0">{{ prenda.password }}</p>
+        <div class="dot" [ngStyle]="{'background-color': prenda.color}"></div>
+
+        <button class="btn btn-danger btn-sm mt-2" (click)="deleteprenda(prenda.id)">
+          borrar
+        </button>
+      </div>
+    </div>
+  </div>
 </div>

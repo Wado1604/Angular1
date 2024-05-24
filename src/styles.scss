@@ -2,3 +2,27 @@
 
 /* Importing Bootstrap SCSS file. */
 @import 'bootstrap/scss/bootstrap';
+
+.background {
+    background-image: linear-gradient(to bottom right, #9ef40a, #f1bb09);
+    color: rgb(243, 232, 232);
+  }
+
+.backgroundHombre{
+  background-image: linear-gradient(to bottom right, rgb(13, 224, 239), rgb(70, 11, 231));
+  color: white;
+}
+
+.backgroundMujeres{
+  background-image: linear-gradient(to bottom right, rgb(239, 13, 194), rgb(98, 11, 122));
+  color: white;
+}
+
+.backgroundÑinos {
+  background-image: linear-gradient(to bottom right, rgb(239, 239, 13), rgb(231, 11, 11));
+  color: white;
+}
+.backgroundTeen{
+  background-image: linear-gradient(to bottom right, #1afe06, blueviolet);
+  color: white;
+}
